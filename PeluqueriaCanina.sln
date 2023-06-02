@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeluqueriaCanina", "PeluqueriaCanina\PeluqueriaCanina.csproj", "{D76BCC93-D68D-4D26-BF9E-E9BC7FF26F76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{7E1DDEC7-7424-465B-9856-C9A522258831}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D76BCC93-D68D-4D26-BF9E-E9BC7FF26F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76BCC93-D68D-4D26-BF9E-E9BC7FF26F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76BCC93-D68D-4D26-BF9E-E9BC7FF26F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76BCC93-D68D-4D26-BF9E-E9BC7FF26F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E1DDEC7-7424-465B-9856-C9A522258831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1DDEC7-7424-465B-9856-C9A522258831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1DDEC7-7424-465B-9856-C9A522258831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E1DDEC7-7424-465B-9856-C9A522258831}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CE8AF89-770F-41CA-B3B4-F2AC45537B24}
+	EndGlobalSection
+EndGlobal
