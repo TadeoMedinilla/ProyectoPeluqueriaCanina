@@ -1,6 +1,7 @@
 ﻿using DataAccess.Configuration;
 using DataAccess.Entities;
 using DataAccess.Entities.DTOs;
+using DataAccess.Interfaces;
 using DataAccess.Utilities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class ClientDAO : SQL_Methods<Client>
+    public class ClientDAO : SQL_Methods<Client>, IClientDAO
     {
         private Automapper Mapper { get; set; } = new Automapper();
 

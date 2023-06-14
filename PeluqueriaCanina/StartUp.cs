@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using DataAccess.DAO;
+using DataAccess.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -90,6 +92,14 @@ namespace PeluqueriaCanina
 
                 };
             });
+
+            services.AddScoped<IEmployeeDAO, EmployeeDAO>();
+            services.AddScoped<IUserDAO, UserDAO>();
+            services.AddScoped<IClientDAO, ClientDAO>();
+            services.AddScoped<ITurnDAO, TurnDAO>();
+            //services.AddScoped<IDAO, DAO>();
+
+
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -120,5 +130,6 @@ namespace PeluqueriaCanina
             });
 
         }
+
     }
 }

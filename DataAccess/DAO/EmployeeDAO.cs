@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess.Interfaces;
 
 namespace DataAccess.DAO
 {
-    public class EmployeeDAO : SQL_Methods<Employee>
+    public class EmployeeDAO : SQL_Methods<Employee>, IEmployeeDAO
     {
         private Automapper Mapper { get; set; } = new Automapper();
 
@@ -18,6 +19,7 @@ namespace DataAccess.DAO
         private List<Employee> EmpList { get; set; } = new List<Employee>();
         private EmployeeDTO EmpDTO { get; set; } = new EmployeeDTO();
         private List<EmployeeDTO> EmpDTOList { get; set; } = new List<EmployeeDTO> ();
+
 
 
         // Insert Employee querys:
@@ -43,6 +45,7 @@ namespace DataAccess.DAO
                                                             EmpD_DNI as Emp_DNI, EmpD_Adress as Emp_Adress, EmpD_Email as Emp_Email, EmpD_Role as Emp_Role, EmpD_Status as Emp_Status
                                                             FROM PeluqueriaCanina.dbo.EmployeeDetail
                                                             FULL JOIN PeluqueriaCanina.dbo.EmployeeMaster ON EmpD_ID = EmpM_ID";
+
         //Methods:
 
         public async Task<int> RegisterEmployee(Register empRegistration)

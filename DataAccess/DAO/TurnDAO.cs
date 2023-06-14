@@ -1,6 +1,7 @@
 ﻿using DataAccess.Configuration;
 using DataAccess.Entities;
 using DataAccess.Entities.DTOs;
+using DataAccess.Interfaces;
 using DataAccess.Utilities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class TurnDAO : SQL_Methods<Turn>
+    public class TurnDAO : SQL_Methods<Turn>, ITurnDAO
     {
         private int durationInMinutes { get; set; } = 30;
         private Turn turn { get; set; } = new Turn();

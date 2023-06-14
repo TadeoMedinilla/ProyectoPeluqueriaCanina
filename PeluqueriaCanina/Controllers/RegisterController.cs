@@ -1,6 +1,7 @@
 ﻿using DataAccess.DAO;
 using DataAccess.Entities;
 using DataAccess.Entities.DTOs;
+using DataAccess.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -17,11 +18,20 @@ namespace PeluqueriaCanina.Controllers
 
         private Client Cli { get; set; } = new Client();
         private ClientDTO CliDTO { get; set; } = new ClientDTO();
-        private ClientDAO CliDAO { get; set; } = new ClientDAO();
-
-        private UserDAO userDAO { get; set; } = new UserDAO();
-
         
+        //private ClientDAO CliDAO { get; set; } = new ClientDAO();
+        private IClientDAO CliDAO { get; set; } 
+        
+
+        //private UserDAO userDAO { get; set; } = new UserDAO();
+        private IUserDAO userDAO { get; set; }
+
+        public RegisterController(IClientDAO cliDAO, IUserDAO userDAO)
+        {
+            CliDAO = cliDAO;
+            this.userDAO = userDAO;
+        }
+
         [AllowAnonymous]
         [HttpPost]
         [Route("/Client")]
@@ -42,7 +52,7 @@ namespace PeluqueriaCanina.Controllers
 
                 return Ok("Registro realizado correctamente.");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return StatusCode(500, "Ocurrio un error al registrarse.");
             }

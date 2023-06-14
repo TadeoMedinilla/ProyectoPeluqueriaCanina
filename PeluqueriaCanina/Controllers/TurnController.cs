@@ -1,6 +1,7 @@
 ﻿using DataAccess.DAO;
 using DataAccess.Entities;
 using DataAccess.Entities.DTOs;
+using DataAccess.Interfaces;
 using DataAccess.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,8 @@ namespace PeluqueriaCanina.Controllers
     [Route("[Controller]")]
     public class TurnController : ControllerBase
     {
-        private TurnDAO turnDAO { get; set; } = new TurnDAO();
+        //private TurnDAO turnDAO { get; set; } = new TurnDAO();
+        private ITurnDAO turnDAO { get; set; } 
 
         private EmployeeDTO empDTO { get; set; } = new EmployeeDTO();
 
@@ -22,6 +24,13 @@ namespace PeluqueriaCanina.Controllers
         private User user { get; set; } = new User();
 
         private TokenManagement tokenManager { get; set; } = new TokenManagement();
+
+
+
+        public TurnController(ITurnDAO turnDAO)
+        {
+            this.turnDAO = turnDAO;
+        }
 
         [Authorize(policy:"Client")]
         [HttpGet]

@@ -1,6 +1,7 @@
 ﻿using DataAccess.DAO;
 using DataAccess.Entities;
 using DataAccess.Entities.DTOs;
+using DataAccess.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +15,18 @@ namespace PeluqueriaCanina.Controllers
         private EmployeeDTO EmpDTO { get; set; } = new EmployeeDTO();
         private List<EmployeeDTO> EmpDTOList { get; set; } = new List<EmployeeDTO> ();
         private List<Employee> EmpList { get; set; } = new List<Employee> ();
-        private EmployeeDAO empDAO { get; set; } = new EmployeeDAO();
-        
+        //private EmployeeDAO empDAO { get; set; } = new EmployeeDAO();
+        private IEmployeeDAO empDAO { get; set; }
+
         private UserDAO userDAO { get; set; } = new UserDAO();
 
         private Register Registration { get; set; } = new Register();
+        
 
+        public EmployeeController(IEmployeeDAO empDAO)
+        {
+            this.empDAO = empDAO;
+        }
 
         /* Por cuestiones de orden este metodo se paso a RegisterController.
         [HttpPost]
@@ -35,7 +42,9 @@ namespace PeluqueriaCanina.Controllers
             await empDAO.RegisterEmployee(empRegistration);
 
         }*/
-        [Authorize(policy:"Client")]
+
+        [AllowAnonymous]
+        //[Authorize(policy:"Client")]
         [HttpGet]
         [Route("/Employees")]
         public ActionResult<List<EmployeeDTO>> Employees()
@@ -44,7 +53,6 @@ namespace PeluqueriaCanina.Controllers
 
             return Ok(EmpDTOList);
         }
-
 
         //[HttpGet]
         //public ActionResult SeleccionarEmpleado(int emp)

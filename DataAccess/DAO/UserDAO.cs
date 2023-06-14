@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configuration;
 using DataAccess.Entities;
+using DataAccess.Interfaces;
 using DataAccess.Utilities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class UserDAO : SQL_Methods<User>
+    public class UserDAO : SQL_Methods<User>, IUserDAO
     {
         private PasswordHandler passwordHandler = new PasswordHandler(); 
         private Automapper Mapper { get; set; } = new Automapper();
